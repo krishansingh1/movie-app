@@ -1,7 +1,7 @@
 import Navbar from "./Navbar";
 import Moviecard from "./Moviecard";
 import React from "react";
-import {data} from "../data";
+import { data } from "../data";
 import { addMovies } from "../actions";
 
 class App extends React.Component {
@@ -18,7 +18,7 @@ class App extends React.Component {
     }
 
     render() {
-        const movies = this.props.store.getState();
+        const { list } = this.props.store.getState();
 
         return (
             <>
@@ -29,7 +29,7 @@ class App extends React.Component {
                         <div className="tab">Favourite</div>
                     </div>
                     <div className="list">
-                        {movies.map((movie, index) => {
+                        {list.map((movie, index) => {
                             return <Moviecard movie={movie} key={index} />;
                         })}
                     </div>
