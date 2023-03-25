@@ -30,7 +30,7 @@ class App extends React.Component {
                     </div>
                     <div className="list">
                         {list.map((movie, index) => {
-                            return <Moviecard movie={movie} key={index} dispatch={this.props.store.dispatch}/>;
+                            return <Moviecard movie={movie} key={index} dispatch={this.props.store.dispatch} />;
                         })}
                     </div>
                 </div>
