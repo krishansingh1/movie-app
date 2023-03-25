@@ -9,7 +9,7 @@ import movies from './reducers';
 
 const store = createStore(movies);
 
-console.log("STORE:", store.getState());
+console.log("STORE", store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
