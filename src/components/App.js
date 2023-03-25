@@ -16,6 +16,7 @@ class App extends React.Component {
             type: "ADD_MOVIES",
             movies: data,
         })
+
         console.log(this.props.store.getState());
     }
 
