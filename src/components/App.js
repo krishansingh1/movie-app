@@ -12,8 +12,8 @@ export default function App() {
                     <div className="tab">Favourite</div>
                 </div>
                 <div className="list">
-                    {data.map((movie) => {
-                        return <Moviecard movie={movie} />;
+                    {data.map((movie,index) => {
+                        return <Moviecard movie={movie} key={index}/>;
                     })}
                 </div>
             </div>
