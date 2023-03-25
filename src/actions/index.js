@@ -28,7 +28,7 @@ export function removeFavourite(movie) {
 
 export function showFavourites(val) {
     return {
-        type: "REMOVE_FROM_FAVOURITES",
+        type: "SHOW_FAVOURITES",
         val,
     }
 }
