@@ -1,8 +1,9 @@
 import Navbar from "./Navbar";
 import Moviecard from "./Moviecard";
-import { data } from "../data.js";
 
-export default function App() {
+
+export default function App(props) {
+    const movies = props.store.getState();
     return (
         <>
             <Navbar />
@@ -12,8 +13,8 @@ export default function App() {
                     <div className="tab">Favourite</div>
                 </div>
                 <div className="list">
-                    {data.map((movie,index) => {
-                        return <Moviecard movie={movie} key={index}/>;
+                    {movies.map((movie, index) => {
+                        return <Moviecard movie={movie} key={index} />;
                     })}
                 </div>
             </div>
