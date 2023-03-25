@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import Moviecard from "./Moviecard";
-import React, { useEffect } from "react";
+import React from "react";
 import { data } from '../data';
 
 
@@ -16,11 +16,11 @@ class App extends React.Component {
             type: "ADD_MOVIES",
             movies: data,
         })
-        console.log(props.store.getState());
+        console.log(this.props.store.getState());
     }
 
     render() {
-        const movies = props.store.getState();
+        const movies = this.props.store.getState();
 
         return (
             <>
