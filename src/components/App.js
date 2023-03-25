@@ -12,7 +12,6 @@ class App extends React.Component {
         })
 
         store.dispatch(addMovies(data))
-
     }
 
     render() {
