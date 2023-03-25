@@ -8,18 +8,16 @@ class App extends React.Component {
     componentDidMount() {
         const { store } = this.props;
         store.subscribe(() => {
-            console.log("Updated");
             this.forceUpdate();
         })
 
         store.dispatch(addMovies(data))
 
-        console.log(this.props.store.getState());
     }
 
     render() {
         const { list } = this.props.store.getState();
-
+        console.log(this.props.store.getState());
         return (
             <>
                 <Navbar />
