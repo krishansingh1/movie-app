@@ -20,6 +20,13 @@ const logger = ({ dispatch, getState }) => (next) => (action) => {
   next(action);
 }
 
+const thunk = ({ dispatch, getState }) => (next) => (action) => {
+  if (typeof action === 'function') {
+    action(dispatch);
+  }
+  next(action);
+}
+
 const store = createStore(rootReducer, applyMiddleware(logger));
 
 console.log("Store", store);
