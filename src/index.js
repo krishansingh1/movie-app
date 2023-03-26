@@ -23,11 +23,12 @@ const logger = ({ dispatch, getState }) => (next) => (action) => {
 const thunk = ({ dispatch, getState }) => (next) => (action) => {
   if (typeof action === 'function') {
     action(dispatch);
+    return;
   }
   next(action);
 }
 
-const store = createStore(rootReducer, applyMiddleware(logger));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
 console.log("Store", store);
 
