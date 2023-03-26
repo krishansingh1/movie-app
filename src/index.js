@@ -16,7 +16,7 @@ import rootReducer from './reducers';
 // }
 
 const logger = ({ dispatch, getState }) => (next) => (action) => {
-  console.log("ACTION_TYPE= ", action.type);
+  // console.log("ACTION_TYPE= ", action.type);
   next(action);
 }
 
