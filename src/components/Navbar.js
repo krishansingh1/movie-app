@@ -29,6 +29,10 @@ class Navbar extends React.Component {
                 <div className="search-container">
                     <input />
                     <button id="search-btn" onClick={this.handleSearch}>Search</button>
+
+                    {showSearchResults && 
+                    <div></div>
+                    }
                 </div>
             </div>
         );
