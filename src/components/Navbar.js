@@ -30,8 +30,18 @@ class Navbar extends React.Component {
                     <input />
                     <button id="search-btn" onClick={this.handleSearch}>Search</button>
 
-                    {showSearchResults && 
-                    <div></div>
+                    {showSearchResults &&
+                        <div className="search-results">
+                            <div className="search-result">
+                                <img src={data[0].Poster} alt="search-pic" />
+                                <div className="movie-info">
+                                    <span>{data[0].Title}</span>
+                                    <button onClick={() => this.handleAddToMovies(data[0])}>
+                                        Add to Movies
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     }
                 </div>
             </div>
