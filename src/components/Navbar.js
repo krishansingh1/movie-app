@@ -1,6 +1,6 @@
 import React from "react";
 import { data } from '../data';
-import { addMovieToList } from '../actions';
+import { addMovieToList, handleMovieSearch } from '../actions';
 
 class Navbar extends React.Component {
 
