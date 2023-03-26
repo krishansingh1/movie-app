@@ -45,9 +45,8 @@ const initialSearchState = {
 export function search(state = initialSearchState, action) {
     switch (action.type) {
         case ADD_MOVIE_TO_LIST:
-            return{
+            return {
                 ...state,
-                m
             }
         default:
             return state;
