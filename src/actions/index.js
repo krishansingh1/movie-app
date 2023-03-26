@@ -5,6 +5,7 @@ export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 export const SHOW_FAVOURITES = "SHOW_FAVOURITES";
 export const ADD_MOVIE_TO_LIST = "ADD_MOVIE_TO_LIST";
 export const MOVIE_SEARCH = "MOVIE_SEARCH";
+export const ADD_SEARCH_RESULT = "ADD_SEARCH_RESULT";
 
 //action creators
 export function addMovies(movies) {
