@@ -7,7 +7,7 @@ const initialMoviesState = {
 }
 
 export default function movies(state = initialMoviesState, action) {
-    switch (action.type) {
+    switch (action.type) {      
         case ADD_MOVIES:
             return {
                 ...state,
