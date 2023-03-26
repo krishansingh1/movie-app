@@ -45,7 +45,12 @@ export function search(state = initialSearchState, action) {
     return state;
 }
 
-export default function rootReducer(state, action) {
+const intialRootState = {
+    movies: initialMoviesState,
+    search: initialSearchState,
+}
+
+export default function rootReducer(state = intialRootState, action) {
     return {
         movies: movies(state, action),
         search: search(state, action),
