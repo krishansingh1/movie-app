@@ -7,15 +7,6 @@ const initialMoviesState = {
     showFavourites: false,
 }
 
-const logger = function ({ dispatch, getState }) {
-    return function (next) {
-        return function (action) {
-            console.log("ACTION_TYPE= ", action.type);
-            next(action);
-        }
-    }
-}
-
 export function movies(state = initialMoviesState, action) {
     switch (action.type) {
         case ADD_MOVIES:
