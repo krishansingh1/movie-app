@@ -6,7 +6,6 @@ class Navbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showSearchResults: false,
             searchText: "",
         }
     }
@@ -31,8 +30,7 @@ class Navbar extends React.Component {
     }
 
     render() {
-        const { showSearchResults } = this.state;
-        const { results } = this.props.search;
+        const { results, showSearchResults } = this.props.search;
         return (
             <div className="nav">
                 <div className="search-container">

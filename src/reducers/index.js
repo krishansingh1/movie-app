@@ -45,6 +45,7 @@ export function movies(state = initialMoviesState, action) {
 
 const initialSearchState = {
     results: {},
+    showSearchResults: false,
 }
 
 export function search(state = initialSearchState, action) {
@@ -53,6 +54,12 @@ export function search(state = initialSearchState, action) {
             return {
                 ...state,
                 results: action.movie,
+                showSearchResults: true,
+            }
+        case ADD_MOVIE_TO_LIST:
+            return {
+                ...state,
+                showSearchResults: false,
             }
         default:
             return state;
