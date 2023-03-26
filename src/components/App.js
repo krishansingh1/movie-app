@@ -39,7 +39,7 @@ class App extends React.Component {
 
         return (
             <>
-                <Navbar />
+                <Navbar dispatch={this.props.store.dispatch} />
                 <div className="main">
                     <div className="tabs">
                         <div className={`tab ${showFavourites ? " " : "active-tabs"}`} onClick={() => this.onChangeTab(false)}>Movie</div>
