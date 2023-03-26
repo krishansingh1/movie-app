@@ -48,6 +48,11 @@ export function handleMovieSearch(movie) {
     return function (dispatch) {
         fetch(url).then((response) => response.json()).then(movie => console.log(movie));
     }
+}
 
-
+export function addMovieSearchResult(movie) {
+    return {
+        type: "ADD_SEARCH_RESULT",
+        movie,
+    }
 }
