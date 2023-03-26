@@ -5,8 +5,12 @@ import { addMovieToList } from '../actions';
 class Navbar extends React.Component {
 
     constructor(props) {
-
+        super(props);
+        this.state = {
+            showSearchResults: true,
+        }
     }
+
     render() {
         return (
             <div className="nav">
