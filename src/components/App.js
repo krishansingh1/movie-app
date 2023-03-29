@@ -3,6 +3,7 @@ import Moviecard from "./Moviecard";
 import React from "react";
 import { data } from "../data";
 import { addMovies, showFavourites } from "../actions";
+import { StoreContext } from "..";
 
 class App extends React.Component {
     componentDidMount() {
@@ -38,22 +39,31 @@ class App extends React.Component {
         const displayMovies = showFavourites ? favourites : list;
 
         return (
-            <>
-                <Navbar dispatch={this.props.store.dispatch} search={search} />
-                <div className="main">
-                    <div className="tabs">
-                        <div className={`tab ${showFavourites ? " " : "active-tabs"}`} onClick={() => this.onChangeTab(false)}>Movie</div>
-                        <div className={`tab ${showFavourites ? "active-tabs" : ""}`} onClick={() => this.onChangeTab(true)}>Favourite</div>
-                    </div>
-                    <div className="list">
-                        {displayMovies.map((movie, index) => {
-                            return <Moviecard movie={movie} key={index} dispatch={this.props.store.dispatch} isFavourite={this.isMovieFavourite(movie)} />;
-                        })}
-                    </div>
-                </div>
-                {displayMovies.length === 0 ? <div className="no-movies">No movies to display!</div> : null}
-            </>
-        );
+            <StoreContext.Consumer>
+                {(store) => {
+                    return (
+                        <>
+                            <Navbar dispatch={this.props.store.dispatch} search={search} />
+                            <div className="main">
+                                <div className="tabs">
+                                    <div className={`tab ${showFavourites ? " " : "active-tabs"}`} onClick={() => this.onChangeTab(false)}>Movie</div>
+                                    <div className={`tab ${showFavourites ? "active-tabs" : ""}`} onClick={() => this.onChangeTab(true)}>Favourite</div>
+                                </div>
+                                <div className="list">
+                                    {displayMovies.map((movie, index) => {
+                                        return <Moviecard movie={movie} key={index} dispatch={this.props.store.dispatch} isFavourite={this.isMovieFavourite(movie)} />;
+                                    })}
+                                </div>
+                            </div>
+                            {displayMovies.length === 0 ? <div className="no-movies">No movies to display!</div> : null}
+                        </>
+                    );
+                }
+
+                }
+            </StoreContext.Consumer>
+        )
+
     }
 }
 
