@@ -49,6 +49,10 @@ class Provider extends React.Component {
 export function connect(callback) {
   return function (Component) {
     return class ConnectedComponent extends React.Component {
+      constructor(props) {
+        super(props);
+        this.props.store.subscribe(() => this.forceUpdate());
+      }
       render() {
         return (
           <StoreContext.Consumer>
