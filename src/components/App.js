@@ -3,7 +3,7 @@ import Moviecard from "./Moviecard";
 import React from "react";
 import { data } from "../data";
 import { addMovies, showFavourites } from "../actions";
-import { StoreContext } from "..";
+import { connect } from "..";
 
 class App extends React.Component {
     componentDidMount() {
@@ -70,13 +70,13 @@ class App extends React.Component {
 //     }
 // }
 
-function callback(state) {
+function mapStateToProps(state) {
     return {
         movies: state.movies,
         search: state.search,
     }
 }
 
-const connectedAppComponent = connect(callback)(App);
+const connectedAppComponent = connect(mapStateToProps)(App);
 
 export default connectedAppComponent;
