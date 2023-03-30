@@ -60,5 +60,14 @@ class App extends React.Component {
     }
 }
 
+class AppWrapper extends React.Component {
+    render() {
+        return (
+            <StoreContext.Consumer>
+                {(store) => <App store={store} />}
+            </StoreContext.Consumer>
+        )
+    }
+}
 
 export default App;
