@@ -46,6 +46,27 @@ class Provider extends React.Component {
   }
 }
 
+export function connect(callback) {
+  return function (Component) {
+    return class ConnectedComponent extends React.Component {
+      render() {
+        return (
+          <StoreContext.Consumer>
+            {(store) => {
+              const state = store.getState();
+              const dataToBePassedASProps = callback(state);
+
+              return (
+                <Component {...dataToBePassedASProps} dispatch={store.dispatch} />
+              )
+            }}
+          </StoreContext.Consumer>
+        )
+      }
+    }
+  }
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
