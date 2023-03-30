@@ -48,24 +48,27 @@ class Provider extends React.Component {
 
 export function connect(callback) {
   return function (Component) {
-    return class ConnectedComponent extends React.Component {
+    class ConnectedComponent extends React.Component {
       constructor(props) {
         super(props);
         this.props.store.subscribe(() => this.forceUpdate());
       }
       render() {
+        const state = store.getState();
+        const dataToBePassedASProps = callback(state);
+        return (
+          <Component {...dataToBePassedASProps} dispatch={store.dispatch} />
+        )
+      }
+    }
+
+    class ConnectedComponentWrapper extends React.Component {
+      render() {
         return (
           <StoreContext.Consumer>
-            {(store) => {
-              const state = store.getState();
-              const dataToBePassedASProps = callback(state);
-
-              return (
-                <Component {...dataToBePassedASProps} dispatch={store.dispatch} />
-              )
-            }}
+            {(store) => <ConnectedComponent store={store} />}
           </StoreContext.Consumer>
-        )
+        );
       }
     }
   }
