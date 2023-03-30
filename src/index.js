@@ -51,8 +51,13 @@ export function connect(callback) {
     class ConnectedComponent extends React.Component {
       constructor(props) {
         super(props);
-        this.unsubscibe = this.props.store.subscribe(() => this.forceUpdate());
+        this.unsubscribe = this.props.store.subscribe(() => this.forceUpdate());
       }
+
+      componentWillUnmount() {
+        this.unsubscribe();
+      }
+
       render() {
         const state = store.getState();
         const dataToBePassedASProps = callback(state);
