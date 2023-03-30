@@ -3,7 +3,7 @@ import Moviecard from "./Moviecard";
 import React from "react";
 import { data } from "../data";
 import { addMovies, showFavourites } from "../actions";
-import { connect } from "..";
+import { connect } from "react-redux";
 
 class App extends React.Component {
     componentDidMount() {
