@@ -7,16 +7,12 @@ import { connect } from "..";
 
 class App extends React.Component {
     componentDidMount() {
-        const { store } = this.props;
-        store.subscribe(() => {
-            this.forceUpdate();
-        })
 
-        store.dispatch(addMovies(data))
+        this.props.dispatch(addMovies(data))
     }
 
     isMovieFavourite = (movie) => {
-        const { movies } = this.props.store.getState();
+        const { movies } = this.props;
 
         const index = movies.favourites.indexOf(movie);
 
@@ -28,13 +24,13 @@ class App extends React.Component {
     }
 
     onChangeTab = (val) => {
-        this.props.store.dispatch(showFavourites(val));
+        this.props.dispatch(showFavourites(val));
     }
 
     render() {
-        const { movies, search } = this.props.store.getState();
+        const { movies, search } = this.props
         const { list, favourites, showFavourites } = movies;
-        console.log(this.props.store.getState());
+        console.log(this.props);
 
         const displayMovies = showFavourites ? favourites : list;
 
@@ -49,7 +45,7 @@ class App extends React.Component {
                     </div>
                     <div className="list">
                         {displayMovies.map((movie, index) => {
-                            return <Moviecard movie={movie} key={index} dispatch={this.props.store.dispatch} isFavourite={this.isMovieFavourite(movie)} />;
+                            return <Moviecard movie={movie} key={index} dispatch={this.props.dispatch} isFavourite={this.isMovieFavourite(movie)} />;
                         })}
                     </div>
                 </div>
