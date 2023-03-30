@@ -61,7 +61,7 @@ class NavbarWrapper extends React.Component {
     render() {
         return (
             <StoreContext.Consumer>
-                {(store) => <Navbar store={store} />}
+                {(store) => <Navbar dispatch={store.dispatch} search={this.props.search} />}
             </StoreContext.Consumer>
         )
     }
