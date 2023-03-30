@@ -71,6 +71,8 @@ export function connect(callback) {
         );
       }
     }
+
+    return ConnectedComponentWrapper;
   }
 }
 
